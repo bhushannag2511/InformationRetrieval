@@ -1,5 +1,5 @@
 # InformationRetrieval
 
-Information Retrieval COurse Project
+Information Retrieval Course Project
 
 Will be Updated Soon.....
