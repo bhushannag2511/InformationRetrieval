@@ -9,11 +9,10 @@ import java.util.Set;
 public class RemoveStopWords {
 	
 	
-	public void removeStopWords()
+	public void removeStopWords(String [] words)
 	{
 		ArrayList<String> wordsList = new ArrayList<String>();
 		String sCurrentLine;
-		String[] stopwords = new String[2000];
 		Set<String> stopWordsSet = new HashSet<String>();
 		try{
 		        FileReader fr=new FileReader("F:\\stopwordslist.txt");
@@ -23,6 +22,16 @@ public class RemoveStopWords {
 		        }
 		        br.close();
 		       
+		        for(String word : words)
+		        {
+		            String wordCompare = word.toUpperCase();
+		            if(!stopWordsSet.contains(wordCompare))
+		            {
+		                wordsList.add(word);
+		            }
+		        }
+		        
+		        
 		    }catch(Exception ex){
 		        System.out.println(ex);
 		    }
