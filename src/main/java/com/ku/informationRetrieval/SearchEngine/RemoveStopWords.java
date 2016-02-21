@@ -8,19 +8,13 @@ import java.util.Set;
 
 public class RemoveStopWords {
 	
-	
-<<<<<<< HEAD
+
 	public void removeStopWords(String [] words)
 	{
 		ArrayList<String> wordsList = new ArrayList<String>();
 		String sCurrentLine;
-=======
-	public void removeStopWords()
-	{
-		ArrayList<String> wordsList = new ArrayList<String>();
-		String sCurrentLine;
 		String[] stopwords = new String[2000];
->>>>>>> 1430cf55f20ac350c2307a221c16fe77720909bd
+
 		Set<String> stopWordsSet = new HashSet<String>();
 		try{
 		        FileReader fr=new FileReader("F:\\stopwordslist.txt");
@@ -29,8 +23,7 @@ public class RemoveStopWords {
 		        	stopWordsSet.add(sCurrentLine);
 		        }
 		        br.close();
-		       
-<<<<<<< HEAD
+
 		        for(String word : words)
 		        {
 		            String wordCompare = word.toUpperCase();
@@ -40,16 +33,14 @@ public class RemoveStopWords {
 		            }
 		        }
 		        
-		        
-=======
->>>>>>> 1430cf55f20ac350c2307a221c16fe77720909bd
+
 		    }catch(Exception ex){
 		        System.out.println(ex);
 		    }
-		finally
-		{
+				finally
+				{
 			
+				}
+			}
 		}
-	}
 
-}
