@@ -13,8 +13,6 @@ public class RemoveStopWords {
 	{
 		ArrayList<String> wordsList = new ArrayList<String>();
 		String sCurrentLine;
-		String[] stopwords = new String[2000];
-
 		Set<String> stopWordsSet = new HashSet<String>();
 		try{
 		        FileReader fr=new FileReader("F:\\stopwordslist.txt");
