@@ -1,9 +1,12 @@
 package com.ku.informationRetrieval.SearchEngine;
 
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.regex.Pattern;
 
 public class HTMLparser {
@@ -36,6 +39,7 @@ public class HTMLparser {
 				reader = new BufferedReader(new FileReader(files[i]));
 				String line = null;
 				final String pattern = "<(\"[^\"]*\"|'[^']*'|[^'\">])*>";
+				final String escape = "(?s)<!.*?(/>|<-->)";
 				final String scriptPattern = "(?s)<script.*?(/>|</script>)";
 				StringBuilder sb = new StringBuilder();
 				/*
@@ -52,7 +56,11 @@ public class HTMLparser {
 					}
 				}
 				line = sb.toString();
-				System.out.println(line.replaceAll(scriptPattern, "").replaceAll(pattern, ""));
+				//System.out.println(line.replaceAll(scriptPattern, "").replaceAll(escape, "").replaceAll(pattern, " ").replaceAll("\t", ""));
+				ArrayList<String> wordList = new ArrayList<String>(Arrays.asList(line.replaceAll(scriptPattern, "").replaceAll(escape, "").replaceAll(pattern, " ").replaceAll("&#160;","").replaceAll("\t", "").split("\\s+")));
+				for(int x=0;x<wordList.size();x++){
+					System.out.println(wordList.get(x));
+				}
 			}catch(Exception e){
 				e.getStackTrace();
 			}finally{
